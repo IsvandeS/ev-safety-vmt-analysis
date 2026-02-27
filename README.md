@@ -48,6 +48,8 @@ Outputs:
 
 ## Results
 
+![Combined figures](figures/ev_safety_figures_combined.png)
+
 Across all specifications, EV penetration shows no statistically significant 
 association with traffic fatality rates. Point estimates are sensitive to 
 model choice — pooled OLS suggests a near-zero positive effect, while adding 
@@ -73,4 +75,4 @@ be interpreted with caution.
 
 ## License
 
-MIT (see `LICENSE`).
+MIT
