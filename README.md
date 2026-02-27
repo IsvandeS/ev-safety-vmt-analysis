@@ -50,23 +50,20 @@ Outputs:
 
 ![Combined figures](figures/ev_safety_figures_combined.png)
 
-Across all specifications, EV penetration shows no statistically significant 
-association with traffic fatality rates. Point estimates are sensitive to 
-model choice — pooled OLS suggests a near-zero positive effect, while adding 
-year fixed effects produces a negative estimate — indicating that cross-sectional 
-comparisons are confounded by state-level characteristics. The preferred 
-two-way fixed-effects specification (state + year FE, clustered SEs) yields 
-a positive but imprecise estimate, consistent with null results in the 
-within-state variation. Results are robust to a Poisson count model with 
-VMT exposure offset.
+Estimates are sensitive to specification. Pooled OLS and year FE models suggest 
+a negative association (β = −5.34 and −19.23 respectively), but adding state 
+fixed effects flips the sign (β = 13.21), indicating cross-sectional comparisons 
+are confounded by state-level characteristics. The preferred two-way FE 
+specification yields β = 9.41 (95% CI [0.56, 18.26]). Results are robust to 
+a Poisson count model with VMT exposure offset.
 
 ## Notes on data
 
 - **FARS** is downloaded automatically from NHTSA’s annual “National CSV” zip for each year.  
 - **AFDC EV registrations** are scraped from the AFDC website (afdc.energy.gov/vehicle-registration) for each year 2016–2022.
-- **VMT** uses the included `data/raw/vmt_state_year_2015_2022_from_vm2.csv` (covers 2015-2022; but the analysis utilizes 2016-2022).
+- **VMT** uses the included `data/raw/vmt_state_year_2015_2022_from_vm2.csv` (covers 2015-2022; the analysis uses 2016–2022 to match AFDC data availability).
 
-## Another Sidenote
+## Limitations
 
 EV penetration is measured as registrations per 10,000 VMT rather than 
 as a share of the total vehicle fleet, which is the more conventional 
