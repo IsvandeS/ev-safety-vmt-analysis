@@ -8,7 +8,7 @@ suppressPackageStartupMessages({
 source(file.path("R", "helpers.R"))
 
 build_panel <- function(
-  years = 2015:2022,
+  years = 2016:2022,
   download = TRUE,
   raw_dir = file.path("data", "raw"),
   cache_dir = file.path("data", "cache")
@@ -30,10 +30,19 @@ build_panel <- function(
     load_vmt_state_year_csv(vmt_path)
   }
 
+
   panel_raw <- fars_state_year |>
     inner_join(vmt_state_year, by = c("state", "year")) |>
     left_join(ev_state_year, by = c("state", "year")) |>
     mutate(ev_registrations = if_else(is.na(ev_registrations), 0, ev_registrations))
+
+  dup_keys <- panel_raw |>
+    count(state, year, name = "n") |>
+    filter(n > 1)
+  if (nrow(dup_keys) > 0) {
+    stop("Panel has duplicate state-year rows after joins.")
+  }
+
 
   stopifnot(all(panel_raw$year %in% years))
   stopifnot(all(panel_raw$vmt > 0))

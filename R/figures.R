@@ -46,8 +46,9 @@ save_figures <- function(panel, models, output_dir = "outputs") {
     left_join(ev_q, by = "state") |>
     group_by(year, q_lab) |>
     summarise(
+      n_obs      = sum(!is.na(fatal_rate)),
       mean_fatal = mean(fatal_rate, na.rm = TRUE),
-      se_fatal   = sd(fatal_rate, na.rm = TRUE) / sqrt(dplyr::n()),
+      se_fatal   = dplyr::if_else(n_obs > 1, sd(fatal_rate, na.rm = TRUE) / sqrt(n_obs), NA_real_),
       .groups    = "drop"
     )
 
