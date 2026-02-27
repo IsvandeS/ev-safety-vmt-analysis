@@ -37,6 +37,7 @@ install.packages(c("dplyr","tidyr","purrr","stringr","readr","ggplot2","scales",
 Rscript scripts/run_all.R
 ```
 
+
 Outputs:
 - `outputs/tables/regression_table.html`
 - `outputs/tables/poisson_table.html`

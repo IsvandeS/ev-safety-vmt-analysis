@@ -117,6 +117,7 @@ load_ev_state_year <- function(download, raw_dir, cache_dir, years = 2016:2022) 
     filter(!is.na(state), !is.na(year))
 }
 
+
 # Generic VMT CSV loader (expects: state, year, vmt OR state_name, year, vmt)
 load_vmt_state_year_csv <- function(vmt_csv_path) {
   if (!file_exists(vmt_csv_path)) stop("VMT file not found: ", vmt_csv_path)
