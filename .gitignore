@@ -1,0 +1,21 @@
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# renv
+renv/library/
+renv/python/
+renv/staging/
+renv.lock
+
+# Data cache / large downloads
+data/cache/
+data/processed/
+
+# Outputs
+outputs/
+
+# OS
+.DS_Store
+Thumbs.db

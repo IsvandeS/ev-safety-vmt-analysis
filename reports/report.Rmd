@@ -1,0 +1,24 @@
+---
+title: "EV Penetration and Traffic Safety"
+output: html_document
+---
+
+```{r setup, message=FALSE, warning=FALSE}
+source(file.path("R","build_panel.R"))
+source(file.path("R","models.R"))
+source(file.path("R","figures.R"))
+```
+
+## Reproduce
+
+```{r}
+panel <- build_panel(years = 2016:2022, download = TRUE)
+res   <- estimate_models(panel, output_dir = "outputs")
+save_figures(panel, res$models, output_dir = "outputs")
+```
+
+This report is a simple wrapper around the pipeline. For the CLI workflow, run:
+
+```bash
+Rscript scripts/run_all.R
+```
